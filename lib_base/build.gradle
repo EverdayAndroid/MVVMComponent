@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        multiDexEnabled rootProject.ext.android.multiDexEnabled
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //在编译期间生成路径映射
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+        //将svg图片生成制定维度的png图片5.0以下使用
+        vectorDrawables.generatedDensities('xhdpi','xxhdpi','xxxhdpi')
+        //使用support-v7兼容
+        vectorDrawables.useSupportLibrary = true
+        //只保存指定和默认语言
+        resConfigs('zh-rCN')
+    }
+    dataBinding {
+        enabled true
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    //公用的support相关库在base中依赖
+    api rootProject.ext.support["appcompat-v7"]
+    api rootProject.ext.support["constraint-layout"]
+    //阿里路由框架
+    api rootProject.ext.dependencies["arouter-api"]
+    api project(':lib_annotation')
+    //公用资源在base中依赖
+    //    api project(':lib-res')
+    api rootProject.ext.dependencies["butterknife"]
+    implementation project(':lib_res')
+}
