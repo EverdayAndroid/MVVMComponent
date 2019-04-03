@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="textColor">#333333</color>
-    <color name="textColorVice">#6C6C6C</color>
-    <color name="textColorRed">#D51717</color>
-    <color name="textColorHint">#999999</color>
-    <color name="appColor">#FF2041</color>
-    <color name="appBackColor">#F4F3F3</color>
-    <color name="viewLineColor">#E0E0E0</color>
+    <color name="rs_colorPrimary">#3F51B5</color>
+    <color name="rs_colorPrimaryDark">#303F9F</color>
+    <color name="rs_colorAccent">#FF4081</color>
+    <color name="rs_textColor">#333333</color>
+    <color name="rs_textColorVice">#6C6C6C</color>
+    <color name="rs_textColorRed">#D51717</color>
+    <color name="rs_textColorHint">#999999</color>
+    <color name="rs_appColor">#FF2041</color>
+    <color name="rs_appBackColor">#F4F3F3</color>
+    <color name="rs_viewLineColor">#E0E0E0</color>
 
+    <!-- 头部标题背景 -->
+    <color name="rs_head_background">#2979ff</color>
 </resources>

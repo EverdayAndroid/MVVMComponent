@@ -8,6 +8,7 @@ package com.everday.lib_base.config;
 public class AppConfig {
     public static final String[] COMPONENTS = {
             "com.everday.module_home.app.HomeApplication",
-            "com.everday.module_login.app.LoginApplication"
+            "com.everday.module_login.app.LoginApplication",
+            "com.everday.module_login.app.ImageApplication"
     };
 }

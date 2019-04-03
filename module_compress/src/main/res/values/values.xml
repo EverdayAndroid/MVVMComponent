@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="compress_multiple_image_select_albumTextBackground">#99FFFFFF</color>
+    <color name="compress_multiple_image_select_toolbarPrimaryText">#FFFFFF</color>
+    <color name="compress_multiple_image_select_primaryText">#212121</color>
+    <string name="compress_album_view">选择图片</string>
+    <string name="compress_image_view">单击选择</string>
+    <string name="compress_limit_exceeded">最多能选 %d 张</string>
+    <string name="compress_selected">%s 已选</string>
+    <string name="compress_add">ADD</string>
+    <style name="compress_CustomToolbarTheme" parent="Base.ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">@color/compress_multiple_image_select_toolbarPrimaryText</item>
+    </style>
+
+
+    <style name="compress_appTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    </style>
+</resources>

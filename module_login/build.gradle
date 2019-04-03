@@ -22,6 +22,7 @@ dependencies {
     implementation project(':lib_base')
     implementation project(':lib_res')
     implementation project(':lib_annotation')
+    implementation project(':lib_network')
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
 }

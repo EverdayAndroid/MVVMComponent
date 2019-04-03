@@ -1,3 +1,3 @@
-include ':app', ':lib_base',':lib_annotation', ':module_home', ':module_login', ':lib_res'
+include ':app', ':lib_base',':lib_annotation', ':module_home', ':module_login', ':lib_res', ':module_compress', ':lib_network'
 //
 

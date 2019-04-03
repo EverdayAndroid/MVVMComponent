@@ -19,4 +19,9 @@ public class RouterActivityPath {
     public static class MODULE_LOGIN{
         public static final String MODULE_LOGINACTVITY = "/modudel/login/LoginActivity";
     }
+
+    //图片模块路由路径
+    public static class MODULE_COMPRESS{
+        public static final String MODULE_ALBUMSELECTACTIVITY = "/modudel/compress/AlbumSelectActivity";
+    }
 }

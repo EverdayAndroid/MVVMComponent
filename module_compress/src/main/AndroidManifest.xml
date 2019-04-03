@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.everday.module_compress">
+
+    <application>
+        <activity android:name=".activity.AlbumSelectActivity"/>
+        <activity android:name=".activity.ImageSelectActivity"></activity>
+    </application>
+
+</manifest>

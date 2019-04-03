@@ -49,5 +49,26 @@ dependencies {
     //公用资源在base中依赖
     //    api project(':lib-res')
     api rootProject.ext.dependencies["butterknife"]
-    implementation project(':lib_res')
+    //鲁班压缩
+    api rootProject.ext.dependencies["luban"]
+
+    //rx管理View的生命周期
+    api(rootProject.ext.dependencies.rxlifecycle){
+        exclude group: 'com.android.support'
+//        exclude group: 'io.reactivex.rxjava2'
+    }
+//    api rootProject.ext.dependencies["rxlifecycle-components"]
+    api(rootProject.ext.dependencies["rxlifecycle-components"]) {
+        exclude group: 'com.android.support'
+//        exclude group: 'io.reactivex.rxjava2'
+    }
+    //rxbinding
+    api(rootProject.ext.dependencies.rxbinding) {
+        exclude group: 'com.android.support'
+//        exclude group: 'io.reactivex.rxjava2'
+    }
+    api rootProject.ext.dependencies["lifecycle-extensions"]
+
+    api rootProject.ext.dependencies["retrofit"]
+    api project(':lib_res')
 }

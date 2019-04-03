@@ -29,6 +29,12 @@ ext {
             //rxjava
             "rxjava"              : "io.reactivex.rxjava2:rxjava:${RXJAVA}",
             "rxandroid"           : "io.reactivex.rxjava2:rxandroid:${RXANDROID}",
+            //rxbinding
+            "rxbinding"                            : "com.jakewharton.rxbinding2:rxbinding:2.2.0",
+            //rx系列与View生命周期同步
+            "rxlifecycle"                          : "com.trello.rxlifecycle2:rxlifecycle:2.2.2",
+            "rxlifecycle-components"               : "com.trello.rxlifecycle2:rxlifecycle-components:2.2.2",
+            "lifecycle-extensions"                 : "android.arch.lifecycle:extensions:1.1.1",
 
             //network
             "okhttp"              : "com.squareup.okhttp3:okhttp:3.10.0",
@@ -47,5 +53,6 @@ ext {
             //注解
             "butterknife"         : 'com.jakewharton:butterknife:8.8.1',
             "butterknife-compiler": 'com.jakewharton:butterknife-compiler:8.8.1',
+            "luban"               : 'top.zibin:Luban:1.1.3'
     ]
 }

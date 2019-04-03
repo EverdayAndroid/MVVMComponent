@@ -1,24 +1,30 @@
 package com.everday.module_login.activity;
 
+import android.arch.lifecycle.Observer;
+import android.databinding.Observable;
 import android.os.Bundle;
-import android.view.View;
+import android.support.annotation.Nullable;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.widget.TextView;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.everday.lib_base.base.BaseActivity;
-import com.everday.lib_base.router.RouterActivityPath;
-import com.everday.module_login.R;
-import com.everday.module_login.R2;
 import com.everday.module_login.BR;
+import com.everday.module_login.R;
 import com.everday.module_login.databinding.LoginActivityLoginBinding;
-import com.everday.module_login.entity.LoginViewModel;
+import com.everday.module_login.model.LoginViewModel;
+import com.jakewharton.rxbinding2.widget.RxTextView;
 
-import butterknife.OnClick;
-
-public class LoginActivity extends BaseActivity<LoginActivityLoginBinding,LoginViewModel> {
-    private  LoginViewModel model;
+/**
+ * @author Everday
+ * @emil wangtaohandsome@gmail.com
+ * create at 2019/3/26
+ * description: 登陆界面
+ */
+public class LoginActivity extends BaseActivity<LoginActivityLoginBinding, LoginViewModel> {
     @Override
     public int initVariableId() {
-        return BR.viewModel;
+        return BR.loginViewModel;
     }
 
     @Override
@@ -26,27 +32,9 @@ public class LoginActivity extends BaseActivity<LoginActivityLoginBinding,LoginV
         return R.layout.login_activity_login;
     }
 
-    @Override
-    public LoginViewModel initModel() {
-        model = new LoginViewModel();
-        return model;
-    }
 
     @Override
     public void initData() {
-        super.initData();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                model.setUserName("李四2");
-                model.setPassword("33333333333333333333333333333");
-            }
-        }).start();
     }
 
     @Override
@@ -54,17 +42,30 @@ public class LoginActivity extends BaseActivity<LoginActivityLoginBinding,LoginV
         super.onResume();
     }
 
+    @Override
+    public void initViewObservable(){
+        //监听ViewModel中pSwitchObservable的变化
+        baseModel.uc.pSwitchObservable.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(Observable sender, int propertyId) {
+                if(baseModel.uc.pSwitchObservable.get()){
+                    //密码可见
+                    binding.etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }else{
+                    //密码不可见
+                    binding.etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+                binding.etPassword.setSelection(binding.etPassword.getText().length());
 
-    @OnClick({R2.id.btn})
-    void OnClick(View view){
-        int id = view.getId();
-        if(id == R.id.btn){
-            ARouter.getInstance().build(RouterActivityPath.MODULE_HOME.MODULE_HOMEACTVITY)
-                    .withInt("age", 18)
-                    .withString("name", "张三")
-                    .navigation();
-        }
+            }
+        });
+
+        baseModel.getMutableLiveData().observe(this, new Observer<Object>() {
+            @Override
+            public void onChanged(@Nullable Object o) {
+                refreshLayout();
+            }
+        });
     }
-
 
 }

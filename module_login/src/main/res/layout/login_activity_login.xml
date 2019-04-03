@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
+
         <variable
-            name="viewModel"
-            type="com.everday.module_login.entity.LoginViewModel" />
+            name="loginViewModel"
+            type="com.everday.module_login.model.LoginViewModel" />
+
     </data>
 
     <RelativeLayout
@@ -23,7 +25,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="@dimen/rs_h">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -49,7 +51,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:background="@color/textColorHint" />
+                    android:background="@color/rs_textColorHint" />
 
                 <EditText
                     android:layout_width="0dp"
@@ -57,16 +59,17 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:hint="请输入用户名"
-                    android:text="@={viewModel.userName}"
-                    android:textColor="@color/textColor"
-                    android:textColorHint="@color/textColorHint"
-                    android:textSize="16sp" />
+                    android:text="@={loginViewModel.userName}"
+                    android:textColor="@color/rs_textColor"
+                    android:textColorHint="@color/rs_textColorHint"
+                    android:textSize="16sp"/>
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:padding="6dp"
-                    android:src="@mipmap/clean_edit" />
+                    android:src="@mipmap/clean_edit"
+                    onClickCommand="@{loginViewModel.clearUserNameOnClickCommand}"/>
             </LinearLayout>
 
             <LinearLayout
@@ -88,7 +91,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:background="@color/textColorHint" />
+                    android:background="@color/rs_textColorHint" />
 
                 <EditText
                     android:id="@+id/et_password"
@@ -98,9 +101,9 @@
                     android:background="@null"
                     android:hint="请输入密码"
                     android:inputType="textPassword"
-                    android:text="@={viewModel.password}"
-                    android:textColor="@color/textColor"
-                    android:textColorHint="@color/textColorHint"
+                    android:text="@={loginViewModel.password}"
+                    android:textColor="@color/rs_textColor"
+                    android:textColorHint="@color/rs_textColorHint"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -108,7 +111,8 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:padding="6dp"
-                    android:src="@mipmap/show_psw" />
+                    android:src="@mipmap/show_psw"
+                    onClickCommand="@{loginViewModel.passwordShowSwitchOnClickCommand}"/>
             </LinearLayout>
 
             <RelativeLayout
@@ -122,7 +126,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="8dp"
                     android:text="忘记密码"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/rs_colorPrimaryDark"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -141,7 +145,8 @@
                     android:text="登录"
                     android:id="@+id/btn"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    onClickCommand="@{loginViewModel.loginOnClickCommand}"/>
             </LinearLayout>
 
             <TextView

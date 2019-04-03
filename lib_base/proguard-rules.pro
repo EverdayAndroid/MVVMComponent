@@ -271,5 +271,5 @@
 
 
 #-keep com.everday.module_login.app.LoginApplication.**{*;}
-#-keep com.everday.module_home.app.HomeApplcation.**{*;}
+#-keep com.everday.module_home.app.HomeApplication.**{*;}
 #-keep com.everday.lib_base.inter.IAppComponet.**{*;}
